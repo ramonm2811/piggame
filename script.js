@@ -1,9 +1,9 @@
 'use strict';
-/* 
+
 const btnNewGame = document.querySelector('.btn--new');
 const btnRollDice = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
-const current1 = document.querySelector('.current--0');
+const current1 = document.querySelector('.currentjk');
 const current2 = document.querySelector('.current--1');
 init();
 
@@ -25,7 +25,7 @@ function init() {
 function rollDice(player) {
   const dice = Math.floor(Math.random() * 6) + 1;
 }
- */
+
 
 //-----------------------------------------------------------------------
 //-----------------------------------------------------------------------
