@@ -1,29 +1,39 @@
 'use strict';
-
-const btnNewGame = document.querySelector('.btn--new');
-const btnRollDice = document.querySelector('.btn--roll');
+//DOM Selectors
+const score0 = document.querySelector('#score--0');
+const score1 = document.querySelector('#score--1');
+const current0 = document.querySelector('#current--0');
+const current1 = document.querySelector('#current--1');
+const dice = document.querySelector('.dice');
+const btnNew = document.querySelector('.btn--new');
+const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
-const current1 = document.querySelector('.currentjk');
-const current2 = document.querySelector('.current--1');
-init();
 
-//Eventos
-btnRollDice.addEventListener('click', rollDice);
+//Initial state
+score0.textContent = 0;
+score1.textContent = 0;
+dice.classList.add('hide');
 
-//Funciones
-function init() {
-  const player1 = prompt('Nombre de player 1');
-  const player2 = prompt('Nombre de player 2');
-  document.querySelector('#name--0').textContent = player1;
-  document.querySelector('#name--1').textContent = player2;
+//
+let currentScore = 0;
 
-  document.getElementById('score--0').textContent = 0;
-  document.getElementById('score--1').textContent = 0;
-  document.querySelector('.dice').style.display = 'none';
+//Buttons events
+btnRoll.addEventListener('click', rollDice);
+
+function rollDice() {
+  //1. Generate a random number between 1 - 6
+  const diceNumber = Math.floor(Math.random() * 6) + 1;
+  //2. Display dice
+  dice.classList.remove('hide');
+  dice.src = `dice-${diceNumber}.png`;
+  //3. Check for rolled 1: if true changePlayer() else addCurrent
+  if (diceNumber !== 1) {
+    //Add dice to current score
+    currentScore += diceNumber;
+    current0.textContent = currentScore;
+  } else {
+    //switch to next player
+  }
 }
 
-function rollDice(player) {
-  const dice = Math.floor(Math.random() * 6) + 1;
-}
-
-
+ 
